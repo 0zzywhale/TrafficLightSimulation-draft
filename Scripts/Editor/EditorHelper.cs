@@ -13,14 +13,14 @@ namespace TrafficSimulation {
             //Create new Undo Group to collect all changes in one Undo
             Undo.SetCurrentGroupName(undoName);
 
-            //Register all TrafficSystem changes after this (string not relevant here)
+            //Register all TrafficSystem changes after this 
             Undo.RegisterFullObjectHierarchyUndo(trafficSystem.gameObject, undoName);
         }
 
         public static GameObject CreateGameObject(string name, Transform parent = null) {
             GameObject newGameObject = new GameObject(name);
 
-            //Register changes for Undo (string not relevant here)
+            //Register changes for Undo 
             Undo.RegisterCreatedObjectUndo(newGameObject, "Spawn new GameObject");
             Undo.SetTransformParent(newGameObject.transform, parent, "Set parent");
 
@@ -48,7 +48,6 @@ namespace TrafficSimulation {
             return -b - sqrt > 0f || -b + sqrt > 0f;
         }
 
-        //From S_Darkwell: https://forum.unity.com/threads/adding-layer-by-script.41970/
         public static void CreateLayer(string name){
             if (string.IsNullOrEmpty(name))
                 throw new System.ArgumentNullException("name", "New layer name string is either null or empty.");
@@ -83,7 +82,6 @@ namespace TrafficSimulation {
             tagManager.ApplyModifiedProperties();
         }
 
-        //From SkywardRoy: https://forum.unity.com/threads/change-gameobject-layer-at-run-time-wont-apply-to-child.10091/
         public static void SetLayer (this GameObject gameObject, int layer, bool includeChildren = false) {
             if (!includeChildren) {
                 gameObject.layer = layer;
