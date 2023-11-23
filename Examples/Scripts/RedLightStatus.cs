@@ -7,7 +7,7 @@ using TrafficSimulation;
 public class RedLightStatus : MonoBehaviour
 {
 
-    public int lightGroupId;  // Belong to traffic light 1 or 2?
+    public int lightGroupId; 
     public Intersection intersection;
     
     Light pointLight;
